@@ -19,11 +19,11 @@ var bio = {
   contacts: {
     mobile: '204-781-4099',
     email: 'jbrauer.inc@gmail.com',
-    github: 'string',
-    twitter: 'string [optional]',
+    github: 'https://github.com/jordanbrauer',
+    twitter: 'https://twitter.com/jordbrauer',
     location: 'Winnipeg, Canada'
   },
-  welcomeMessage: 'string',
+  welcomeMessage: 'Creator, developer, and table-top gamer.',
   skills: [
     // languages
     'HTML5',
@@ -101,12 +101,19 @@ var education = {
 var work = {
   jobs: [
     {
-      employer: 'string',
-      title: 'string',
-      location: 'string',
-      dates: '[string - string] || [string]',
-      description: 'string'
-    }
+      employer: 'Mid-Canada Fasteners &amp; Tools Ltd.',
+      title: 'Web Developer',
+      location: 'Winnipeg, Canada',
+      dates: 'September 2014 - Present',
+      description: ''
+    },
+    // {
+    //   employer: 'string',
+    //   title: 'string',
+    //   location: 'string',
+    //   dates: '[string - string] || [string]',
+    //   description: 'string'
+    // }
   ],
   display: function() { }
 };
@@ -115,9 +122,25 @@ var work = {
 var projects = {
   projects: [
     {
-      title: 'string',
-      dates: 'string - string',
-      description: 'string',
+      title: 'fillytext.js',
+      dates: 'Work in Progress',
+      description: 'A tiny front-end devtool for filler text.',
+      images: [
+        'strings(url)'
+      ]
+    },
+    {
+      title: 'What\'s Been Spoiled?',
+      dates: 'Work in Progress',
+      description: 'A simple spoiler website for Magic: the Gathering!',
+      images: [
+        'strings(url)'
+      ]
+    },
+    {
+      title: 'Timato',
+      dates: 'Work in Progress',
+      description: 'A node based tomato timer application for all devices!',
       images: [
         'strings(url)'
       ]
