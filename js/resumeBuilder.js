@@ -1,6 +1,12 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
+/**
+  * resumeBuilder.js
+  *
+  * Author: Jordan Brauer <jbrauer.inc@gmail.com>
+  * Created: 11/2016
+  *
+  * Description: Create and display objects to the DOM that
+  * hold resume and portfolio data.
+  */
 
 /*---------------------------------------------*\
   Create Resume Objects
