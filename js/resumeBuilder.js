@@ -14,18 +14,47 @@
 
 // biography resume object
 var bio = {
-  name: 'string',
-  role: 'string',
+  name: 'Jordan Brauer', // string
+  role: 'Front-end Engineer', // string
   contacts: {
-    mobile: 'string',
-    email: 'string',
+    mobile: '204-781-4099',
+    email: 'jbrauer.inc@gmail.com',
     github: 'string',
     twitter: 'string [optional]',
-    location: 'string'
+    location: 'Winnipeg, Canada'
   },
   welcomeMessage: 'string',
   skills: [
-    'strings'
+    // languages
+    'HTML5',
+    'CSS3',
+    'JavaScript',
+    'SASS/SCSS',
+    'PHP',
+    'MySQL',
+    // vcs
+    'Git',
+    // package managers
+    'yarn',
+    'npm',
+    'Bower',
+    'Composer',
+    // frameworks
+    'Mocha.js',
+    'Chai.js',
+    'jQuery',
+    'Twitter Bootstrap',
+    'Foundation Sites',
+    'Foundation Emails',
+    'Smarty',
+    // editors
+    'Atom Editor',
+    'GIMP',
+    'Inkscape',
+    // operating systems
+    'Windows',
+    'Mac OS X',
+    'Linux'
   ],
   biopic: 'string(url)',
   display: function() { }
@@ -35,20 +64,32 @@ var bio = {
 var education = {
   schools: [
     {
-      name: 'string',
-      location: 'string',
-      degree: 'string',
+      name: 'Louis Riel Arts & Technology Centre',
+      location: 'Winnipeg, Canada',
+      degree: 'New Media Design Certificate',
       majors: [
-        'strings'
+        'Front-end Development',
+        'Business'
       ],
-      dates: 'string - string',
-      url: 'string'
+      dates: 'September 2013 - June 2014',
+      url: 'https://www.lrsd.net/schools/ATC/Pages/default.aspx'
+    },
+    {
+      name: 'Glenlawn Collegiate Institute',
+      location: 'Winnipeg, Canada',
+      degree: 'High School Diploma',
+      majors: [
+        'English',
+        'Computer Science'
+      ],
+      dates: 'September 2009 - June 2013',
+      url: 'http://www.lrsd.net/schools/GCI/Pages/default.aspx'
     }
   ],
   onlineCourses: [
     {
-      title: 'string',
-      school: 'string',
+      title: 'Front-end Nanodgree',
+      school: 'Udacity',
       dates: 'string - string',
       url: 'string'
     }
