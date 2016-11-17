@@ -13,6 +13,10 @@
 
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+const concat = require('gulp-concat');
+const rename = require('gulp-rename');
+const imgMin = require('gulp-imagemin');
+const imgResize = require('gulp-image-resize');
 const autoprefix = require('gulp-autoprefixer');
 const del = require('del');
 
