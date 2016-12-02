@@ -219,6 +219,7 @@ var education = {
 
     // displayCourse()
     // create an education block on the page from an object
+    // similar to displaySchool, but for online courses instead.
     var displayCourse = function(courseObj) {
       educationSection.append(HTMLschoolStart);
 
@@ -261,11 +262,7 @@ var work = {
       title: 'Web Developer',
       location: 'Winnipeg, Canada',
       dates: 'September 2014 - Present',
-      description: `<ul>
-                      <li>• Develop and maintain the company website.</li>
-                      <li>• Design and print company  yers/ads.</li>
-                      <li>• Manage, maintain and promote the company Facebook, Twitter, and Instagram.</li>
-                    </ul>`
+      description: 'Develop and maintain the company website. Design and print company  yers/ads. Manage, maintain and promote the company Facebook, Twitter, and Instagram.'
     },
     // {
     //   employer: 'string',
@@ -275,7 +272,34 @@ var work = {
     //   description: 'string'
     // }
   ],
-  display: function() { }
+  display: function() {
+    var workExperienceSection = $('#workExperience');
+
+    var displayWorkExperience = function (jobObj) {
+      workExperienceSection.append(HTMLworkStart);
+
+      var workEntry = $('.work-entry:last');
+
+      var workEmployer = HTMLworkEmployer.replace(placeholder, jobObj.employer);
+      var workTitle = HTMLworkTitle.replace(placeholder, jobObj.title);
+      var workDates = HTMLworkDates.replace(placeholder, jobObj.dates);
+      var workLocation = HTMLworkLocation.replace(placeholder, jobObj.location);
+      var workDescription = HTMLworkDescription.replace(placeholder, jobObj.description);
+
+      workEntry
+        .append(workEmployer)
+        .append(workTitle)
+        .append(workDates)
+        .append(workLocation)
+        .append(workDescription);
+    };
+
+    if (work.jobs.length > 0) {
+      for (var i = 0; i < work.jobs.length; i++) {
+        displayWorkExperience(work.jobs[i]);
+      }
+    }
+  }
 };
 
 // personal projects resume object
@@ -306,7 +330,20 @@ var projects = {
       ]
     }
   ],
-  display: function() { }
+  display: function() {
+    var projectSection = $('#projects');
+
+    var displayProject = function (projectObj) {
+      projectSection.append(HTMLprojectStart);
+
+      var projectEntry = $('.project-entry:last');
+
+      var projectTitle = HTMLprojectTitle.replace(placeholder, porjectObj.title);
+      var projectDates = HTMLprojectDates.replace(placeholder, projectObj.dates);
+      var projectDescription = HTMLprojectDescription.replace(placeholder, projectObj.description);
+      var projectImage = HTMLprojectImage.replace(placeholder, porjectObj.images);
+    }
+  }
 };
 
 /*---------------------------------------------*\
