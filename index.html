@@ -7,46 +7,72 @@
     <meta name="description" content="content">
     <link rel="author" href="humans.txt">
 
-    <!-- Load the page styles. -->
-    <link href="css/style.css" rel="stylesheet">
+    <!-- <link href="styles/styles.css" rel="stylesheet"> -->
 
+    <style>
+    html, body {
+      font-family: "Lato", "Raleway", Helvetica, Arial, sans-serif;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #skills {}
+
+    #skills li {
+      font-size: 48px;
+      display: inline;
+      margin: 0 4px;
+    }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:200,200i|Raleway:100" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+
+    <script src="https://use.fontawesome.com/c477074d77.js"></script>
     <!--
     Uncomment the <script> tag below when you're ready to add an interactive Google Map to your resume!
     -->
     <!-- <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
   </head>
   <body>
+    <div id="aside">
+      <!-- magellan navigation -->
+    </div> <!-- /#aside -->
+
     <div id="main">
-      <div id="header" class="center-content clear-fix">
-        <ul id="topContacts" class="flex-box">
-        </ul>
-      </div>
+      <div id="header">
+        <ul id="topContacts">
+        </ul> <!-- /#topContacts -->
+      </div> <!-- /#header -->
 
-      <div style="clear: both;"></div>
-
-      <div id="workExperience" class="gray">
+      <div id="workExperience">
         <h2>Work Experience</h2>
-      </div>
+      </div> <!-- /#workExperience -->
 
       <div id="projects">
         <h2>Projects</h2>
-      </div>
+      </div> <!-- /#projects -->
 
-      <div id="education" class="gray">
+      <div id="education">
         <h2>Education</h2>
-      </div>
+      </div> <!-- /#education -->
 
       <div id="mapDiv">
         <h2>Where I've Lived and Worked</h2>
-      </div>
+      </div> <!-- /#mapDiv -->
 
-      <div id="lets-connect" class="dark-gray">
-        <h2 class="orange center-text">Let's Connect</h2>
+      <div id="lets-connect">
+        <h2>Let's Connect</h2>
 
-        <ul id="footerContacts" class="flex-box">
-        </ul>
-      </div>
-    </div>
+        <ul id="footerContacts">
+        </ul> <!-- /#footerContacts -->
+      </div> <!-- /#lets-connect -->
+    </div> <!-- /#main -->
 
     <!-- "HTML is loaded by the browser in the order it appears in the file. If the JavaScript is loaded first and it is supposed to affect the HTML below it, it might not work, as the JavaScript would be loaded before the HTML it is supposed to work on. Therefore, putting JavaScript near the bottom of the HTML page is often the best strategy." https://developer.mozilla.org/en-US/Learn/Getting_started_with_the_web/JavaScript_basics -->
 
@@ -77,24 +103,31 @@
     course.
     -->
     <script>
+    // contacts top
     if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('topContacts').style.display = 'none';
     }
-    if(document.getElementsByTagName('h1').length === 0) {
-      document.getElementById('header').style.display = 'none';
-    }
-    if(document.getElementsByClassName('work-entry').length === 0) {
-      document.getElementById('workExperience').style.display = 'none';
-    }
-    if(document.getElementsByClassName('project-entry').length === 0) {
-      document.getElementById('projects').style.display = 'none';
-    }
-    if(document.getElementsByClassName('education-entry').length === 0) {
-      document.getElementById('education').style.display = 'none';
-    }
+    // contacts bottom
     if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('lets-connect').style.display = 'none';
     }
+    // header setion
+    if(document.getElementsByTagName('h1').length === 0) {
+      document.getElementById('header').style.display = 'none';
+    }
+    // work section
+    if(document.getElementsByClassName('work-entry').length === 0) {
+      document.getElementById('workExperience').style.display = 'none';
+    }
+    // projects section
+    if(document.getElementsByClassName('project-entry').length === 0) {
+      document.getElementById('projects').style.display = 'none';
+    }
+    // education section
+    if(document.getElementsByClassName('education-entry').length === 0) {
+      document.getElementById('education').style.display = 'none';
+    }
+    // map section
     if(document.getElementById('map') === null) {
       document.getElementById('mapDiv').style.display = 'none';
     }
