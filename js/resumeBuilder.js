@@ -31,37 +31,31 @@ var bio = {
     'HTML5',
     'CSS3',
     'JavaScript',
-    'SASS/SCSS',
     'PHP',
     'MySQL',
     'Apache',
-    'ssh',
-    // vcs
     'Git',
-    // package managers
-    'yarn', // no devicon
-    'npm', // no devicon
-    'Bower',
-    'Composer', // no devicon
-    // task runners
-    'Gulp',
-    'Grunt',
-    // frameworks
-    'Mocha.js', // no devicon
-    'Chai.js', // no devicon
-    'jQuery',
-    'Twitter Bootstrap',
-    'Foundation Sites',
-    'Foundation Emails', // no devicon
-    'Smarty', // no devicon
-    // editors
-    'Atom Editor',
+    'SSH',
+    'Windows8',
+    'Apple',
+    'Ubuntu',
     'GIMP',
     'Inkscape',
-    // operating systems
-    'Windows',
-    'Mac OS X',
-    'Linux'
+    'SASS',
+    'Gulp',
+    'jQuery',
+    'Bootstrap',
+    'Foundation',
+    'Grunt',
+    'Bower',
+    'Atom',
+    // 'Composer', // no devicon
+    // 'npm', // no devicon
+    // 'yarn', // no devicon
+    // 'Mocha.js', // no devicon
+    // 'Chai.js', // no devicon
+    // 'Foundation Emails', // no devicon
+    // 'Smarty', // no devicon
   ],
   biopic: 'https://avatars3.githubusercontent.com/u/18744334?v=3&u=c575c5b70e692078d8543a10028f2f4692f0003d&s=400',
   display: function() {
@@ -90,19 +84,19 @@ var bio = {
 
     // display the contact information in the header
     topContactsSection
-      .append(bioContactEmail)
       .append(bioContactMobile)
+      .append(bioContactEmail)
+      .append(bioContactLocation)
       .append(bioContactGitHub)
-      .append(bioContactTwitter)
-      .append(bioContactLocation);
+      .append(bioContactTwitter);
 
     // display the contact information in the footer
     footerContactsSection
-      .append(bioContactEmail)
       .append(bioContactMobile)
+      .append(bioContactEmail)
+      .append(bioContactLocation)
       .append(bioContactGitHub)
-      .append(bioContactTwitter)
-      .append(bioContactLocation);
+      .append(bioContactTwitter);
 
     // check to see if the bio has a skills section with atleast 1 entry
     // if so, display any and all entries.
@@ -125,7 +119,8 @@ var bio = {
 
         // create an image tag using the formatted skill as an image name
         // use the skill parameter passed to the function as the alt text for accessibility.
-        var skillImage = `<img src="./assets/img/logo-${formattedSkill}.svg" alt="${skillStr}">`;
+        // var skillImage = `<img src="./assets/img/logo-${formattedSkill}.svg" alt="${skillStr}">`;
+        var skillImage = `<i class="devicon-${formattedSkill}-plain"></i>`;
 
         // replace the placeholder with the skillImage
         var skillData = HTMLskills.replace(placeholder, skillImage);
@@ -261,16 +256,23 @@ var work = {
       employer: 'Mid-Canada Fasteners &amp; Tools Ltd.',
       title: 'Web Developer',
       location: 'Winnipeg, Canada',
-      dates: 'September 2014 - Present',
-      description: 'Develop and maintain the company website. Design and print company  yers/ads. Manage, maintain and promote the company Facebook, Twitter, and Instagram.'
+      dates: 'January 2016 - Present',
+      description: 'My main responsibilities include but are not limited to; designing, developing and maintaining the company website; design and print company flyers and product promotions. Manage, maintain and promote the company Facebook, Twitter, and Instagram social media pages. Some of my biggest accomplishments are being the first person to have this position for the company, implementing Twitter and Instagram accounts to broaden our online reach, implementing Slack for internal communication, and creating an internal documentation tool.'
     },
-    // {
-    //   employer: 'string',
-    //   title: 'string',
-    //   location: 'string',
-    //   dates: '[string - string] || [string]',
-    //   description: 'string'
-    // }
+    {
+      employer: 'Mid-Canada Fasteners &amp; Tools Ltd.',
+      title: 'Shipper',
+      location: 'Winnipeg, Canada',
+      dates: 'September 2014 - January 2016',
+      description: 'My main responsibilities indcluded but were not limited to; checking orders that have been picked by warehouse staff to ensure that the correct product is picked; efficiently package orders after they have been checked and label them for delivery, this includes evenly distributing weight, wrapping pallets safely and securely, ensuring that boxes are properly sealed and that the customers product remains undamaged; manage the Purolator, UPS, Tiger Courier, Gardewine, and many other business shipping accounts.'
+    },
+    {
+      employer: 'Starbucks',
+      title: 'Barista',
+      location: 'Winnipeg, Canada',
+      dates: 'June 2014 - Sepetember 2014',
+      description: 'My main responsibilities included but were not limited to; taking orders for customers in addition to making coffee, tea, and other specialty drinks to customer specifications; operate the cash registers and credit card machines; field customer complaints or questions; clean coffee machines, restaurant areas, restrooms, and preparation areas during a normal shift; worked to maintain good customer relations and speedy delivery of all beverages as well as complete assigned tasks from management every day.'
+    },
   ],
   display: function() {
     var workExperienceSection = $('#workExperience');
@@ -310,7 +312,7 @@ var projects = {
       dates: 'Work in Progress',
       description: 'A tiny front-end devtool for filler text.',
       images: [
-        'strings(url)'
+        'http://placehold.it/250x250'
       ]
     },
     {
@@ -318,7 +320,7 @@ var projects = {
       dates: 'Work in Progress',
       description: 'A simple spoiler website for Magic: the Gathering!',
       images: [
-        'strings(url)'
+        'http://placehold.it/250x250'
       ]
     },
     {
@@ -326,7 +328,7 @@ var projects = {
       dates: 'Work in Progress',
       description: 'A node based tomato timer application for all devices!',
       images: [
-        'strings(url)'
+        'http://placehold.it/250x250'
       ]
     }
   ],
@@ -338,10 +340,27 @@ var projects = {
 
       var projectEntry = $('.project-entry:last');
 
-      var projectTitle = HTMLprojectTitle.replace(placeholder, porjectObj.title);
+      var projectTitle = HTMLprojectTitle.replace(placeholder, projectObj.title);
       var projectDates = HTMLprojectDates.replace(placeholder, projectObj.dates);
       var projectDescription = HTMLprojectDescription.replace(placeholder, projectObj.description);
-      var projectImage = HTMLprojectImage.replace(placeholder, porjectObj.images);
+      var projectImages = HTMLprojectImage.replace(placeholder, projectObj.images);
+
+      projectEntry
+        .append(projectTitle)
+        .append(projectDates)
+        .append(projectDescription);
+
+      // TODO: FIX MULTI PROJECT IMAGES
+
+      for (var i = 0; i < projects.projects.length; i++) {
+        projectEntry.append(projects.projects[i].projectImages)
+      }
+    }
+
+    if (projects.projects.length > 0) {
+      for (var i = 0; i < projects.projects.length; i++) {
+        displayProject(projects.projects[i])
+      }
     }
   }
 };
