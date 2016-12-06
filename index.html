@@ -21,21 +21,9 @@
       font-family: "Lato", "Raleway", Helvetica, Arial, sans-serif;
     }
 
-    a {
-      font-weight: bold;
-    }
+    a { font-weight: bold; }
 
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    #skills li {
-      font-size: 48px;
-      display: inline;
-      margin: 0 4px;
-    }
+    #skills { font-size: 48px; }
     </style>
 
     <!--
@@ -44,39 +32,40 @@
     <!-- <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
   </head>
   <body>
-    <div id="aside">
-      <!-- magellan navigation -->
-    </div> <!-- /#aside -->
+    <div id="grid" class="row expanded">
+      <div id="aside" class="columns medium-4">
+        <div id="header">
+          <ul id="topContacts" class="menu vertical">
+          </ul> <!-- /#topContacts -->
+        </div> <!-- /#header -->
+      </div> <!-- /#aside -->
 
-    <div id="main">
-      <div id="header">
-        <ul id="topContacts">
-        </ul> <!-- /#topContacts -->
-      </div> <!-- /#header -->
+      <div id="main" class="columns medium-8">
+        <div id="workExperience">
+          <h2>Work Experience</h2>
+        </div> <!-- /#workExperience -->
 
-      <div id="workExperience">
-        <h2>Work Experience</h2>
-      </div> <!-- /#workExperience -->
+        <div id="projects">
+          <h2>Projects</h2>
+        </div> <!-- /#projects -->
 
-      <div id="projects">
-        <h2>Projects</h2>
-      </div> <!-- /#projects -->
+        <div id="education">
+          <h2>Education</h2>
+        </div> <!-- /#education -->
 
-      <div id="education">
-        <h2>Education</h2>
-      </div> <!-- /#education -->
+        <div id="mapDiv">
+          <h2>Where I've Lived and Worked</h2>
+        </div> <!-- /#mapDiv -->
 
-      <div id="mapDiv">
-        <h2>Where I've Lived and Worked</h2>
-      </div> <!-- /#mapDiv -->
+        <div id="lets-connect">
+          <h2>Let's Connect</h2>
 
-      <div id="lets-connect">
-        <h2>Let's Connect</h2>
-
-        <ul id="footerContacts">
-        </ul> <!-- /#footerContacts -->
-      </div> <!-- /#lets-connect -->
-    </div> <!-- /#main -->
+          <ul id="footerContacts" class="menu">
+          </ul> <!-- /#footerContacts -->
+        </div> <!-- /#lets-connect -->
+      </div> <!-- /#main -->
+    </div>
+    <!-- magellan navigation -->
 
     <!-- "HTML is loaded by the browser in the order it appears in the file. If the JavaScript is loaded first and it is supposed to affect the HTML below it, it might not work, as the JavaScript would be loaded before the HTML it is supposed to work on. Therefore, putting JavaScript near the bottom of the HTML page is often the best strategy." https://developer.mozilla.org/en-US/Learn/Getting_started_with_the_web/JavaScript_basics -->
 

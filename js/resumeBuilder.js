@@ -61,6 +61,7 @@ var bio = {
   display: function() {
     // select container elements
     var headerSection = $('#header');
+    var mainSection = $('#main');
     var topContactsSection = $('#topContacts');
     var footerContactsSection = $('#footerContacts');
 
@@ -77,10 +78,10 @@ var bio = {
 
     // display the bio picture, name, role, and welcome message.
     headerSection
-      .append(bioPic)
-      .append(bioName)
-      .append(bioRole)
-      .append(bioWelcomeMsg);
+      .prepend(bioWelcomeMsg)
+      .prepend(bioPic)
+      .prepend(bioRole)
+      .prepend(bioName);
 
     // display the contact information in the header
     topContactsSection
@@ -98,40 +99,40 @@ var bio = {
       .append(bioContactGitHub)
       .append(bioContactTwitter);
 
+    // displaySkill()
+    // create an image icon for a skill as a nice way to visually display them
+    var displaySkill = function (skillStr, list) {
+      // format the skill to remove any "illegal" characters
+      var formattedSkill =
+        skillStr.toLowerCase()
+          .replace(' ', '-')
+          .replace('.', '-')
+          .replace('/', '-');
+
+      // create an image tag using the formatted skill as an image name
+      // use the skill parameter passed to the function as the alt text for accessibility.
+      // var skillImage = `<img src="./assets/img/logo-${formattedSkill}.svg" alt="${skillStr}">`;
+      var skillImage = `<a><i class="devicon-${formattedSkill}-plain"></i></a>`;
+
+      // replace the placeholder with the skillImage
+      var skillData = HTMLskills.replace(placeholder, skillImage);
+
+      // render the skill to the page
+      list.append(skillData);
+    };
+
     // check to see if the bio has a skills section with atleast 1 entry
     // if so, display any and all entries.
     if (bio.skills.length > 0) {
       // start the skills section
-      headerSection.append(HTMLskillsStart);
+      mainSection.prepend(HTMLskillsStart);
 
       // select the skills section
       var skillsSection = $('#skills');
 
-      // displaySkill()
-      // create an image icon for a skill as a nice way to visually display them
-      var displaySkill = function (skillStr) {
-        // format the skill to remove any "illegal" characters
-        var formattedSkill =
-          skillStr.toLowerCase()
-            .replace(' ', '-')
-            .replace('.', '-')
-            .replace('/', '-');
-
-        // create an image tag using the formatted skill as an image name
-        // use the skill parameter passed to the function as the alt text for accessibility.
-        // var skillImage = `<img src="./assets/img/logo-${formattedSkill}.svg" alt="${skillStr}">`;
-        var skillImage = `<i class="devicon-${formattedSkill}-plain"></i>`;
-
-        // replace the placeholder with the skillImage
-        var skillData = HTMLskills.replace(placeholder, skillImage);
-
-        // render the skill to the page
-        skillsSection.append(skillData);
-      };
-
       // loop through the bio.skills array and invoke displaySkill() for each index.
       for (var i = 0; i < bio.skills.length; i++) {
-        displaySkill(bio.skills[i]);
+        displaySkill(bio.skills[i], skillsSection);
       }
     }
   }

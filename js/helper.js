@@ -11,11 +11,12 @@ Cameron Pittman
 var HTMLheaderName = '<h1>%data%</h1>';
 var HTMLheaderRole = '%data%<br>';
 
-var HTMLbioPic = '<img src="%data%" alt="resume bio picture">';
+var HTMLbioPic = '<img src="%data%" alt="resume bio picture" class="thumbnail"><br>';
 var HTMLwelcomeMsg = '%data%';
 
-var HTMLskillsStart = '<h3>Skills at a Glance:</h3><ul id="skills"></ul>';
-var HTMLskills = '<li>%data%</li>';
+var HTMLskillsStart = '<h2>Skills</h2><div id="skills" class="row small-up-2 medium-up-3 large-up-6"></div>';
+
+var HTMLskills = '<div class="column">%data%</div>';
 
 // contacts
 var HTMLmobile = '<li class="flex-item"><i class="fa fa-md fa-phone"></i> <span class="white-text">%data%</span></li>';
@@ -29,14 +30,14 @@ var HTMLlocation = '<li class="flex-item"><i class="fa fa-md fa-map-marker"></i>
 // work
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
-var HTMLworkTitle = ' - %data%</a>';
-var HTMLworkDates = '%data%';
+var HTMLworkTitle = ' - %data%</a><br>';
+var HTMLworkDates = '%data%<br>';
 var HTMLworkLocation = '%data%';
 var HTMLworkDescription = '<p>%data%</p>';
 
 // projects
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
+var HTMLprojectTitle = '<a href="#">%data%</a><br>';
 var HTMLprojectDates = '%data%';
 var HTMLprojectDescription = '<p>%data%</p>';
 var HTMLprojectImage = `<img src="%data%" alt="project image">`;
@@ -44,14 +45,14 @@ var HTMLprojectImage = `<img src="%data%" alt="project image">`;
 // education
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
-var HTMLschoolDates = '%data%';
+var HTMLschoolDegree = ' -- %data%</a><br>';
+var HTMLschoolDates = '%data%<br>';
 var HTMLschoolLocation = '%data%';
 var HTMLschoolMajor = 'Major: <em>%data%</em>';
 
 var HTMLonlineClasses = '<h3>Online Courses</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
+var HTMLonlineSchool = ' - %data%</a><br>';
 var HTMLonlineDates = '%data%';
 var HTMLonlineURL = '<a href="#">%data%</a>';
 
