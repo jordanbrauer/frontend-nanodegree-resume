@@ -8,10 +8,21 @@
     <link rel="author" href="humans.txt">
 
     <!-- <link href="styles/styles.css" rel="stylesheet"> -->
+    <link href="styles/foundation.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i|Raleway:300" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+
+    <script src="https://use.fontawesome.com/c477074d77.js"></script>
 
     <style>
-    html, body {
+    body, p, h1, h2, h3, h4, h5, h6 {
       font-family: "Lato", "Raleway", Helvetica, Arial, sans-serif;
+    }
+
+    a {
+      font-weight: bold;
     }
 
     ul {
@@ -20,8 +31,6 @@
       padding: 0;
     }
 
-    #skills {}
-
     #skills li {
       font-size: 48px;
       display: inline;
@@ -29,11 +38,6 @@
     }
     </style>
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:200,200i|Raleway:100" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
-
-    <script src="https://use.fontawesome.com/c477074d77.js"></script>
     <!--
     Uncomment the <script> tag below when you're ready to add an interactive Google Map to your resume!
     -->
@@ -92,9 +96,13 @@
     you can't accomplish with vanilla (regular) JavaScript.
     -->
     <script src="js/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
     <script src="js/helper.js"></script>
     <script src="js/resumeBuilder.js"></script>
 
+    <script>
+    $(document).foundation();
+    </script>
     <!--
     These scripts are written in JavaScript. You'll be breaking them down as part of
     a quiz. Essentially, the next few lines are checking to see if you have not
