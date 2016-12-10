@@ -20,14 +20,13 @@ var bio = {
   role: 'Front-end Engineer',
   contacts: {
     mobile: '204-781-4099',
-    location: 'Winnipeg, Canada',
+    location: 'Winnipeg, MB, Canada',
     email: 'jbrauer.inc@gmail.com',
     twitter: 'https://twitter.com/jordbrauer',
     github: 'https://github.com/jordanbrauer'
   },
   welcomeMessage: `Hello, my name is Jordan. I am a publisher, creator, and table-top gaming enthusiast.`,
   skills: [
-    // languages/protocols
     'HTML5',
     'CSS3',
     'JavaScript',
@@ -39,16 +38,16 @@ var bio = {
     'Windows8',
     'Apple',
     'Ubuntu',
+    'Atom',
     'GIMP',
     'Inkscape',
     'SASS',
+    'Grunt',
     'Gulp',
     'jQuery',
     'Bootstrap',
     'Foundation',
-    'Grunt',
     'Bower',
-    'Atom',
     // 'Composer', // no devicon
     // 'npm', // no devicon
     // 'yarn', // no devicon
@@ -81,8 +80,8 @@ var bio = {
       .prepend(bioWelcomeMsg)
       .prepend(bioPic)
       .prepend(bioRole)
-      .prepend(bioName);
-
+      .prepend(bioName)
+      ;
     // display the contact information in the header
     topContactsSection
       .append(bioContactMobile)
@@ -112,7 +111,20 @@ var bio = {
       // create an image tag using the formatted skill as an image name
       // use the skill parameter passed to the function as the alt text for accessibility.
       // var skillImage = `<img src="./assets/img/logo-${formattedSkill}.svg" alt="${skillStr}">`;
-      var skillImage = `<a><i class="devicon-${formattedSkill}-plain"></i></a>`;
+      var skillImage = `
+      <div id="modal-${formattedSkill}" class="reveal" data-reveal>
+        <p>${skillStr}</p>
+
+        asdasd
+
+        <button class="close-button" data-close aria-labal="Close modal." type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <a data-open="modal-${formattedSkill}" data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="1" title="${skillStr}">
+        <i class="devicon-${formattedSkill}-plain"></i>
+      </a>
+      `;
 
       // replace the placeholder with the skillImage
       var skillData = HTMLskills.replace(placeholder, skillImage);
@@ -143,7 +155,7 @@ var education = {
   schools: [
     {
       name: 'Louis Riel Arts & Technology Centre',
-      location: 'Winnipeg, Canada',
+      location: 'Winnipeg, MB, Canada',
       degree: 'New Media Design Certificate',
       majors: [
         'Front-end Development',
@@ -154,7 +166,7 @@ var education = {
     },
     {
       name: 'Glenlawn Collegiate Institute',
-      location: 'Winnipeg, Canada',
+      location: 'Winnipeg, MB, Canada',
       degree: 'High School Diploma',
       majors: [
         'English',
@@ -255,24 +267,35 @@ var work = {
   jobs: [
     {
       employer: 'Mid-Canada Fasteners &amp; Tools Ltd.',
+      url: 'http://midcanadafasteners.com/',
       title: 'Web Developer',
-      location: 'Winnipeg, Canada',
+      location: 'Winnipeg, MB, Canada',
       dates: 'January 2016 - Present',
       description: 'My main responsibilities include but are not limited to; designing, developing and maintaining the company website; design and print company flyers and product promotions. Manage, maintain and promote the company Facebook, Twitter, and Instagram social media pages. Some of my biggest accomplishments are being the first person to have this position for the company, implementing Twitter and Instagram accounts to broaden our online reach, implementing Slack for internal communication, and creating an internal documentation tool.'
     },
     {
       employer: 'Mid-Canada Fasteners &amp; Tools Ltd.',
+      url: 'http://midcanadafasteners.com/',
       title: 'Shipper',
-      location: 'Winnipeg, Canada',
+      location: 'Winnipeg, MB, Canada',
       dates: 'September 2014 - January 2016',
       description: 'My main responsibilities indcluded but were not limited to; checking orders that have been picked by warehouse staff to ensure that the correct product is picked; efficiently package orders after they have been checked and label them for delivery, this includes evenly distributing weight, wrapping pallets safely and securely, ensuring that boxes are properly sealed and that the customers product remains undamaged; manage the Purolator, UPS, Tiger Courier, Gardewine, and many other business shipping accounts.'
     },
     {
       employer: 'Starbucks',
+      url: 'https://www.starbucks.ca/',
       title: 'Barista',
-      location: 'Winnipeg, Canada',
+      location: 'Winnipeg, MB, Canada',
       dates: 'June 2014 - Sepetember 2014',
       description: 'My main responsibilities included but were not limited to; taking orders for customers in addition to making coffee, tea, and other specialty drinks to customer specifications; operate the cash registers and credit card machines; field customer complaints or questions; clean coffee machines, restaurant areas, restrooms, and preparation areas during a normal shift; worked to maintain good customer relations and speedy delivery of all beverages as well as complete assigned tasks from management every day.'
+    },
+    {
+      employer: 'The Real Canadian Superstore, Loblaw',
+      url: 'https://www.realcanadiansuperstore.ca/?cid=bs_google_cpc_Branded-Core-Winnipeg-EXA_superstore%20canada_e&gclid=Cj0KEQiA7K7CBRCrwt26v5uHs98BEiQA0JzsZ_Md7rT34Y2DKqYU0Y_HdhRIjmzYxQiWwoT-dTP5nOEaAmka8P8HAQ',
+      title: 'Courtesy Clerk',
+      location: 'Winnipeg, MB, Canada',
+      dates: 'June 2014 - Sepetember 2014',
+      description: 'My responsibilities included but were not limited to; providing exceptional customer service, ensuring accurate product scanning and price checking, executing company-directed promotions and programs, and maintaining product displays.'
     },
   ],
   display: function() {
@@ -383,4 +406,4 @@ work.display();
 projects.display();
 
 // append the google map api widget to the page.
-// $('#googlemap').append(googleMap);
+$('#mapDiv').append(googleMap);
