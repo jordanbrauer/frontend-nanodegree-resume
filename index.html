@@ -1,228 +1,154 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Jordan Brauer Resume</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="content">
-    <link rel="author" href="humans.txt">
 
-    <!-- foundation -->
-    <link href="styles/foundation.min.css" rel="stylesheet">
+<head>
+  <title>Jordan Brauer Resume</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="content">
+  <link rel="author" href="humans.txt">
+  <!-- foundation -->
+  <link href="./styles/foundation.min.css" rel="stylesheet">
+  <!-- devicon -->
+  <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+  <!-- font awesome -->
+  <script src="https://use.fontawesome.com/c477074d77.js"></script>
+  <!-- resume styles -->
+  <link rel="stylesheet" href="./styles/styles.min.css">
+  <!-- google maps api -->
+  <script src="http://maps.googleapis.com/maps/api/js?libraries=places&z=5&key=AIzaSyDBKB7E7t4u2DXzhPq-FQFT2YKV0ODuPHo"></script>
+</head>
 
-    <!-- devicon -->
-    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+<body>
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+      <!-- Aside - sidebar for bio -->
+      <aside id="offCanvas" class="off-canvas position-left reveal-for-large" data-off-canvas>
+        <div class="row column fadein frame-zero">
+          <button class="close-button" aria-label="Close menu" type="button" data-close>
+            <!-- much prefer the default times symbol over the FontAwesome one. -->
+            <span aria-hidden="true">×</span>
+          </button>
 
-    <!-- font awesome -->
-    <script src="https://use.fontawesome.com/c477074d77.js"></script>
+          <div id="header">
+            <ul id="topContacts" class="menu expanded">
+              <!-- 'UGC' from resume -->
+            </ul>
 
-    <!-- style tweaks -->
-    <style>
-    /*
-    A few small typography tweaks.
-    ----------------------------*/
-
-    /* import Lato:300,300i,700 and Raleway:300,300i,700 font stacks. */
-    @import url(https://fonts.googleapis.com/css?family=Lato:300,300i,700|Raleway:300,300i,700);
-
-    /*
-    Override the default Foundation font family with google-fonts font stack.
-
-    NOTE: Setting .has-tip { font-weight: 700; } does not work for some odd reason.
-          The default .has-top font-weight is in fact 700 and still does not render bold
-          using the font stack below. It seems that setting the body font-weight to 700
-          is the only way to render the .has-tip font as bold.
-
-    HACK: To remedy this, I simply select the immediate child container (.off-canvas-wrapper)
-          and set its' font-weight to the "normal" 300 - weirdly not effecting the .has-tip
-          font-weight... ¯\(°_o)/¯ I've also selected .reveal and <h*> tags since they were not being
-          captured with only seleting .off-canvas-wrapper.
-    */
-    body {
-      font-family: "Lato", "Raleway", Helvetica, Arial, sans-serif;
-      color: #888;
-      font-weight: 700; /* set .has-tip font-weight to bold. */
-    }
-
-    .off-canvas-wrapper,
-    .reveal,
-    h1, h2, h3, h4, h5, h6 {
-      font-weight: 300; /* make all other text' font-weight "normal" */
-    }
-
-    /* Increase the font weight on links */
-    a { font-weight: bold; }
-
-    /* center the the devicons within their columns */
-    #skills .column { text-align: center; margin: 16px 0; }
-
-    #map {
-      height: 250px;
-      margin-bottom: 16px;
-    }
-
-    /*
-    Increase the font size of devicons.
-
-    1. First select all italic tags (we use those for icons now i guess though) that
-       the 'devicon-' in their class list.
-    2. Next, select only those that have a class which begins with 'devicon-' to prevent
-       any pesky CSS collisions _if_ any were to arise.
-
-    NOTE: Sadly, unlike font-awesome, I cannot select
-          the main class of the icon font (.fa {}) to make global overrides.
-          As faras a I can tell, this seems to be a design decision of the
-          developer who made devicon. Oh well. ¯\_(ツ)_/¯ other selectors exist
-          for this reason! A small explanation below.
-    */
-    i[class*='devicon-'] /* 1 */,
-    i[class^='devicon-'] /* 2 */ {
-      font-size: 48px;
-    }
-
-    /*
-    Foundation Tweaks
-    ---------------*/
-
-    @media screen and (max-width:40em) {
-      .top-bar { margin-bottom: 32px; }
-    }
-
-    .off-canvas-content { background: url(img/grid.png) top center }
-
-    /* for some reason this is missing from the custom download version hahaha. */
-    .off-canvas { min-height: 100%;}
-
-    /*
-    Widen the .off-canvas.position-left class by a smidge.
-    Personally, the 250px default was a tad awkward feeling.
-    */
-    /*.off-canvas.position-left {
-      width: 3px;
-      left: -256px;
-    }
-    .off-canvas.position-left.is-open {
-      width: 256px;
-    }
-    .is-open-left {
-      -webkit-transform: translateX(256px);
-      transform: translateX(256px);
-    }*/
-    </style>
-
-    <!--
-    Uncomment the <script> tag below when you're ready to add an interactive Google Map to your resume!
-    -->
-    <script src="http://maps.googleapis.com/maps/api/js?libraries=places&z=5&key=AIzaSyDBKB7E7t4u2DXzhPq-FQFT2YKV0ODuPHo"></script>
-  </head>
-  <body>
-    <div class="off-canvas-wrapper">
-      <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-        <!-- Aside -->
-        <aside id="offCanvas" class="off-canvas position-left reveal-for-large" data-off-canvas>
-          <div class="row column">
-            <button class="close-button" aria-label="Close menu" type="button" data-close>
-              <span aria-hidden="true">&times;</span>
-            </button>
-
-
-            <div id="header">
-              <ul class="menu vertical" data-magellan>
-                <!-- <li class="menu-text">Sections</li> -->
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#workExperience">Work Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#lets-connect">Let's Connect</a></li>
-              </ul>
-              <ul id="topContacts" class="menu vertical">
-              </ul> <!-- /#topContacts.menu.vertical -->
-            </div> <!-- /#header -->
-          </div> <!-- /.row -->
-        </aside> <!-- /#offCanvas.off-canvas.position-left -->
-
-        <!-- Main -->
-        <main id="main" class="off-canvas-content" data-off-canvas-content>
-          <div class="row column">
-            <div id="workExperience" data-magellan-target="workExperience">
-              <h2>Work Experience</h2>
-            </div> <!-- /#workExperience -->
-
-            <div id="projects">
-              <h2>Projects</h2>
-            </div> <!-- /#projects -->
-
-            <div id="education">
-              <h2>Education</h2>
-            </div> <!-- /#education -->
+            <!-- magellan menu for resume sections. -->
+            <!-- give each list item an id to control it's visiblity in conjuction with it's corresponding section -->
+            <ul class="menu vertical" data-magellan>
+              <li id="skills-menu-item"><a href="#skillsMagellan">Skills</a>
+              </li>
+              <li id="workExperience-menu-item"><a href="#workExperience">Work Experience</a>
+              </li>
+              <li id="projects-menu-item"><a href="#projects">Projects</a>
+              </li>
+              <li id="education-menu-item"><a href="#education">Education</a>
+              </li>
+              <li id="lets-connect-menu-item"><a href="#lets-connect">Let's Connect</a>
+              </li>
+            </ul>
           </div>
-          <div class="row">
-            <div class="columns medium-4">
-              <div id="lets-connect">
-                <h2>Let's Connect</h2>
+          <!-- /#header -->
+        </div>
+        <!-- /.row.column -->
+      </aside>
 
-                <ul id="footerContacts" class="menu vertical">
-                </ul> <!-- /#footerContacts.menu -->
-              </div> <!-- /#lets-connect -->
+      <!-- Main - content for resume -->
+      <main id="main" class="off-canvas-content" data-off-canvas-content>
+        <!-- floats in bottom right corner -->
+        <button id="bioToggle" class="round large button hide-for-large" type="button" aria-label="Open menu" data-toggle="offCanvas">
+          <i class="fa fa-md fa-user" aria-hidden="true"></i>
+        </button>
+
+        <!-- <skills> 'UGC' from resume </skills> -->
+
+        <div class="row column">
+          <div id="workExperience" class="section fadein frame-zero" data-magellan-target="workExperience">
+            <h2>Work Experience</h2>
+          </div>
+
+          <div id="projects" class="section fadein frame-one" data-magellan-target="projects">
+            <h2>Projects</h2>
+          </div>
+
+          <div id="education" class="section fadein frame-two" data-magellan-target="education">
+            <h2>Education</h2>
+          </div>
+        </div>
+        <!-- /.row.column -->
+
+        <div class="row section fadein frame-three">
+          <div class="columns medium-4">
+            <div id="lets-connect" data-magellan-target="lets-connect">
+              <h2>Let's Connect</h2>
+
+              <ul id="footerContacts" class="menu vertical">
+                <!-- 'UGC' from resume -->
+              </ul>
             </div>
-            <div class="columns medium-8">
-              <div id="mapDiv">
-                <h2>Where I've Lived and Worked</h2>
-              </div> <!-- /#mapDiv -->
+          </div>
+          <!-- /.columns -->
+          <div class="columns medium-8">
+            <div id="mapDiv">
+              <h2>Where I've Lived and Worked</h2>
+              <!-- <map> 'UGC' from resume </map> -->
             </div>
+          </div>
+          <!-- /.columns -->
+        </div>
+        <!-- /.row.section -->
+      </main>
+      <!--/.off-canvas-content -->
+    </div>
+    <!-- /.off-canvas-wrapper-inner -->
+  </div>
+  <!-- /.off-canvas-wrapper -->
 
-          </div> <!-- /.row -->
-        </main> <!--/.off-canvas-content -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script src="js/helper.js"></script>
+  <script src="js/resumeBuilder.js"></script>
 
-      </div> <!-- /.off-canvas-wrapper-inner -->
-    </div> <!-- /.off-canvas-wrapper -->
-
-    <script src="js/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script src="js/helper.js"></script>
-    <script src="js/resumeBuilder.js"></script>
-
-    <script>
+  <script>
+    // initialize foundation
     $(document).foundation();
-    </script>
 
-    <!--
-    These scripts are written in JavaScript. You'll be breaking them down as part of
-    a quiz. Essentially, the next few lines are checking to see if you have not
-    changed each section of the resume. If you have not made any changes to a section
-    of the resume, then that part of the resume does not show up. More on this in the
-    course.
-    -->
-    <script>
     // contacts top
-    if(document.getElementsByClassName('flex-item').length === 0) {
+    if (document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('topContacts').style.display = 'none';
     }
     // contacts bottom
-    if(document.getElementsByClassName('flex-item').length === 0) {
+    if (document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('lets-connect').style.display = 'none';
+      document.getElementById('lets-connect-menu-item').style.display = 'none';
     }
     // header setion
-    if(document.getElementsByTagName('h1').length === 0) {
+    if (document.getElementsByTagName('h1').length === 0) {
       document.getElementById('header').style.display = 'none';
     }
     // work section
-    if(document.getElementsByClassName('work-entry').length === 0) {
+    if (document.getElementsByClassName('work-entry').length === 0) {
       document.getElementById('workExperience').style.display = 'none';
+      document.getElementById('workExperience-menu-item').style.display = 'none';
     }
     // projects section
-    if(document.getElementsByClassName('project-entry').length === 0) {
+    if (document.getElementsByClassName('project-entry').length === 0) {
       document.getElementById('projects').style.display = 'none';
+      document.getElementById('projects-menu-item').style.display = 'none';
     }
     // education section
-    if(document.getElementsByClassName('education-entry').length === 0) {
+    if (document.getElementsByClassName('education-entry').length === 0) {
       document.getElementById('education').style.display = 'none';
+      document.getElementById('education-menu-item').style.display = 'none';
     }
     // map section
-    if(document.getElementById('map') === null) {
+    if (document.getElementById('map') === null) {
       document.getElementById('mapDiv').style.display = 'none';
     }
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>
