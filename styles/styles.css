@@ -1,0 +1,193 @@
+/*
+Resume Styles
+----------------------------*/
+
+/* import Lato:300,300i,700 and Raleway:300,300i,700 font stacks. */
+@import url(https://fonts.googleapis.com/css?family=Lato:300,300i,700|Raleway:300,300i,700);
+
+/*
+Override the default Foundation font family with google-fonts font stack.
+
+NOTE: Setting .has-tip { font-weight: 700; } does not work for some odd reason.
+      The default .has-top font-weight is in fact 700 and still does not render bold
+      using the font stack below. It seems that setting the body font-weight to 700
+      is the only way to render the .has-tip font as bold.
+      To remedy this, I simply select the immediate child container (.off-canvas-wrapper)
+      and set its' font-weight to the "normal" 300 - weirdly not effecting the .has-tip
+      font-weight... ¯\(°_o)/¯ I've also selected .reveal and <h*> tags since they were not being
+      captured with only seleting .off-canvas-wrapper.
+*/
+body {
+  font-family: "Lato", "Raleway", Helvetica, Arial, sans-serif;
+  color: #888;
+  font-weight: 700; /* set .has-tip font-weight to bold. */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.reveal,
+.off-canvas-wrapper {
+  font-weight: 300; /* make all other text' font-weight "normal" */
+}
+
+/* Increase the font weight on links */
+a {
+  font-weight: bold;
+}
+
+/* create some space between sections of the resume */
+.section {
+  margin-bottom: 64px;
+}
+
+/* center the devicons within their columns */
+#skills .column {
+  text-align: center;
+  margin: 16px 0;
+}
+
+/* give the map a height. does not appear otherwise. */
+#map {
+  height: 250px;
+}
+
+/* fade in animation from my portfolio project */
+/* make keyframes that tell the start state and the end state of our object */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    opacity: 1\9 ;
+    /* IE9 only */
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+    opacity: 1\9 ;
+    /* IE9 only */
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    opacity: 1\9 ;
+    /* IE9 only */
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadein {
+  opacity: 0;
+  /* start as invisible */
+  -webkit-animation: fadeIn ease-in 1;
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  /* this ensures that once the animation is complete, the elements remain at opacity 1 */
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.fadein.frame-zero {
+  -webkit-animation-delay: 0.25s;
+  -moz-animation-delay: 0.25s;
+  animation-delay: 0.25s;
+}
+
+.fadein.frame-one {
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+
+.fadein.frame-two {
+  -webkit-animation-delay: 0.75s;
+  -moz-animation-delay: 0.75s;
+  animation-delay: 0.75s;
+}
+
+.fadein.frame-three {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+/*
+Devicon Tweaks
+------------*/
+
+/*
+Increase the font size of devicons.
+
+1. First select all italic tags (we use those for icons now i guess though) that
+   the 'devicon-' in their class list.
+2. Next, select only those that have a class which begins with 'devicon-' to prevent
+   any pesky CSS collisions _if_ any were to arise.
+
+NOTE: Sadly, unlike font-awesome, I cannot select
+      the main class of the icon font (.fa {}) to make global overrides.
+      As faras a I can tell, this seems to be a design decision of the
+      developer who made devicon. Oh well. ¯\_(ツ)_/¯ other selectors exist
+      for this reason! A small explanation below.
+*/
+i[class*='devicon-'] /* 1 */,
+i[class^='devicon-'] /* 2 */ {
+  font-size: 48px;
+}
+
+/*
+Foundation Tweaks
+---------------*/
+
+/* background image for main content - matches portfolio */
+.off-canvas-content {
+  background: url(../img/grid.png) top center
+}
+
+/* for some reason this is missing from the custom download version hahaha. */
+.off-canvas {
+  min-height: 100%;
+  background: #efefef;
+}
+
+/* styles for the menu toggle on medium and small screens */
+#bioToggle {
+  margin: 16px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  box-shadow: 0rem 0.15rem 0.15rem #aaa;
+}
+
+/* add a round button modifier */
+.button.round {
+  border-radius: 100%;
+}
+
+/* for some reason, the active class on foundation 6 magellan.js doesn't work? */
+a.active {
+  color: #fefefe;
+  background: #0b9;
+}
+a.active:hover,
+a.active:focus{
+  background: #00a184;
+}
