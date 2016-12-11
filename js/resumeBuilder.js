@@ -12,9 +12,13 @@
   Create Resume Objects
 \*---------------------------------------------*/
 // placeholder reference variable
-var placeholder = '%data%';
+var placeholder = new RegExp('%data%', 'g');
 
 // biography resume object
+/*
+TODO: Contact the developer of devicon and request the addition of 'missing' icons.
+      Alternatively, make a PR myself! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
+*/
 var bio = {
   name: 'Jordan Brauer',
   role: 'Front-end Engineer',
@@ -25,7 +29,7 @@ var bio = {
     twitter: 'https://twitter.com/jordbrauer',
     github: 'https://github.com/jordanbrauer'
   },
-  welcomeMessage: `Hello, my name is Jordan. I am a publisher, creator, and table-top gaming enthusiast.`,
+  welcomeMessage: `Hi there, I'm Jordan! I'm a creator and table-top gamer living in the great white North.`,
   skills: [
     'HTML5',
     'CSS3',
@@ -58,45 +62,55 @@ var bio = {
   ],
   biopic: 'https://avatars3.githubusercontent.com/u/18744334?v=3&u=c575c5b70e692078d8543a10028f2f4692f0003d&s=400',
   display: function() {
-    // select container elements
-    var headerSection = $('#header');
-    var mainSection = $('#main');
-    var topContactsSection = $('#topContacts');
-    var footerContactsSection = $('#footerContacts');
-
     // replace the %data% placeholders and save to a variable for later
     var bioPic = HTMLbioPic.replace(placeholder, bio.biopic);
     var bioName = HTMLheaderName.replace(placeholder, bio.name);
     var bioRole = HTMLheaderRole.replace(placeholder, bio.role);
     var bioWelcomeMsg = HTMLwelcomeMsg.replace(placeholder, bio.welcomeMessage);
-    var bioContactEmail = HTMLemail.replace(placeholder, bio.contacts.email);
-    var bioContactMobile = HTMLmobile.replace(placeholder, bio.contacts.mobile);
-    var bioContactGitHub = HTMLgithub.replace(placeholder, bio.contacts.github);
-    var bioContactTwitter = HTMLtwitter.replace(placeholder, bio.contacts.twitter);
-    var bioContactLocation = HTMLlocation.replace(placeholder, bio.contacts.location);
+
+    var bioContactEmailTop = HTMLemailTop.replace(placeholder, bio.contacts.email);
+    var bioContactMobileTop = HTMLmobileTop.replace(placeholder, bio.contacts.mobile);
+    var bioContactGitHubTop = HTMLgithubTop.replace(placeholder, bio.contacts.github);
+    var bioContactTwitterTop = HTMLtwitterTop.replace(placeholder, bio.contacts.twitter);
+    var bioContactLocationTop = HTMLlocationTop.replace(placeholder, bio.contacts.location);
+
+    var bioContactEmailBottom = HTMLemailBottom.replace(placeholder, bio.contacts.email);
+    var bioContactMobileBottom = HTMLmobileBottom.replace(placeholder, bio.contacts.mobile);
+    var bioContactGitHubBottom = HTMLgithubBottom.replace(placeholder, bio.contacts.github);
+    var bioContactTwitterBottom = HTMLtwitterBottom.replace(placeholder, bio.contacts.twitter);
+    var bioContactLocationBottom = HTMLlocationBottom.replace(placeholder, bio.contacts.location);
 
     // display the bio picture, name, role, and welcome message.
+    var headerSection = $('#header');
+
     headerSection
       .prepend(bioWelcomeMsg)
       .prepend(bioPic)
       .prepend(bioRole)
-      .prepend(bioName)
-      ;
+      .prepend(bioName);
+
     // display the contact information in the header
+    var topContactsSection = $('#topContacts');
+
     topContactsSection
-      .append(bioContactMobile)
-      .append(bioContactEmail)
-      .append(bioContactLocation)
-      .append(bioContactGitHub)
-      .append(bioContactTwitter);
+      .append(bioContactMobileTop)
+      .append(bioContactEmailTop)
+      .append(bioContactLocationTop)
+      .append(bioContactGitHubTop)
+      .append(bioContactTwitterTop);
 
     // display the contact information in the footer
+    var footerContactsSection = $('#footerContacts');
+
     footerContactsSection
-      .append(bioContactMobile)
-      .append(bioContactEmail)
-      .append(bioContactLocation)
-      .append(bioContactGitHub)
-      .append(bioContactTwitter);
+      .append(bioContactMobileBottom)
+      .append(bioContactEmailBottom)
+      .append(bioContactLocationBottom)
+      .append(bioContactGitHubBottom)
+      .append(bioContactTwitterBottom);
+
+    // display the skills within the main content
+    var mainSection = $('#main > .row.column'); /* funny selector for the mobile nav bar */
 
     // displaySkill()
     // create an image icon for a skill as a nice way to visually display them
@@ -110,19 +124,9 @@ var bio = {
 
       // create an image tag using the formatted skill as an image name
       // use the skill parameter passed to the function as the alt text for accessibility.
-      // var skillImage = `<img src="./assets/img/logo-${formattedSkill}.svg" alt="${skillStr}">`;
       var skillImage = `
-      <div id="modal-${formattedSkill}" class="reveal" data-reveal>
-        <p>${skillStr}</p>
-
-        asdasd
-
-        <button class="close-button" data-close aria-labal="Close modal." type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <a data-open="modal-${formattedSkill}" data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="1" title="${skillStr}">
-        <i class="devicon-${formattedSkill}-plain"></i>
+      <a data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="1" title="${skillStr}">
+        <i class="devicon-${formattedSkill}-plain" aria-hidden="true"></i>
       </a>
       `;
 
@@ -194,7 +198,7 @@ var education = {
       // start a new education block
       educationSection.append(HTMLschoolStart);
 
-      // last entry in the array
+      // select last template entry
       var educationEntry = $('.education-entry:last');
 
       // replace the %data% placeholders and save to a variable for later
@@ -229,10 +233,13 @@ var education = {
     // create an education block on the page from an object
     // similar to displaySchool, but for online courses instead.
     var displayCourse = function(courseObj) {
+      // start a new course block
       educationSection.append(HTMLschoolStart);
 
+      // select the last entry of the template
       var educationEntry = $('.education-entry:last');
 
+      // replace the %data% placeholders and save to a var
       var onlineTitle =
         HTMLonlineTitle
           .replace(placeholder, courseObj.title)
@@ -240,12 +247,11 @@ var education = {
 
       var onlineSchool = HTMLonlineSchool.replace(placeholder, courseObj.school);
       var onlineDates = HTMLonlineDates.replace(placeholder, courseObj.dates);
-      // var onlineUrl = HTMLonlineURL.replace(placeholder, courseObj.url);
 
+      // render the course block
       educationEntry
         .append(onlineTitle + onlineSchool)
-        .append(onlineDates)
-        // .append(online);
+        .append(onlineDates);
     };
 
     // check to see if the education.onlineCourses array has any entires
@@ -299,19 +305,29 @@ var work = {
     },
   ],
   display: function() {
+    // select the work experience section
     var workExperienceSection = $('#workExperience');
 
+    // displayWorkExperience()
+    // Create an entry within the work experience section.
     var displayWorkExperience = function (jobObj) {
+      // start a new work experience entry
       workExperienceSection.append(HTMLworkStart);
 
+      // select the last template entry
       var workEntry = $('.work-entry:last');
 
-      var workEmployer = HTMLworkEmployer.replace(placeholder, jobObj.employer);
+      // replace the %data% placeholders and save to a variable
+      var workEmployer =
+        HTMLworkEmployer
+          .replace(placeholder, jobObj.employer)
+          .replace('#', jobObj.url);
       var workTitle = HTMLworkTitle.replace(placeholder, jobObj.title);
       var workDates = HTMLworkDates.replace(placeholder, jobObj.dates);
       var workLocation = HTMLworkLocation.replace(placeholder, jobObj.location);
       var workDescription = HTMLworkDescription.replace(placeholder, jobObj.description);
 
+      // render the work entry to the page.
       workEntry
         .append(workEmployer)
         .append(workTitle)
@@ -320,6 +336,7 @@ var work = {
         .append(workDescription);
     };
 
+    // loop through the work experience objext and invoke displayWorkExperience() for each index.
     if (work.jobs.length > 0) {
       for (var i = 0; i < work.jobs.length; i++) {
         displayWorkExperience(work.jobs[i]);
@@ -333,54 +350,67 @@ var projects = {
   projects: [
     {
       title: 'fillytext.js',
+      url: 'https://github.com/jordanbrauer/filly-text',
       dates: 'Work in Progress',
       description: 'A tiny front-end devtool for filler text.',
-      images: [
-        'http://placehold.it/250x250'
-      ]
+      images: []
     },
     {
       title: 'What\'s Been Spoiled?',
+      url: 'https://github.com/jordanbrauer/whats-been-spoiled',
       dates: 'Work in Progress',
       description: 'A simple spoiler website for Magic: the Gathering!',
-      images: [
-        'http://placehold.it/250x250'
-      ]
+      images: []
     },
     {
       title: 'Timato',
+      url: 'https://github.com/ProjectTimato',
       dates: 'Work in Progress',
       description: 'A node based tomato timer application for all devices!',
-      images: [
-        'http://placehold.it/250x250'
-      ]
+      images: []
     }
   ],
   display: function() {
+    // select the projects section
     var projectSection = $('#projects');
 
+    // displayProject()
+    // create a project block entry from an object.
     var displayProject = function (projectObj) {
+      // start a new project block
       projectSection.append(HTMLprojectStart);
 
+      // select the last template entry
       var projectEntry = $('.project-entry:last');
 
-      var projectTitle = HTMLprojectTitle.replace(placeholder, projectObj.title);
+      // replace the %data placeholders and save to a variable
+      var projectTitle =
+        HTMLprojectTitle
+          .replace(placeholder, projectObj.title)
+          .replace('#', projectObj.url);
+
       var projectDates = HTMLprojectDates.replace(placeholder, projectObj.dates);
       var projectDescription = HTMLprojectDescription.replace(placeholder, projectObj.description);
-      var projectImages = HTMLprojectImage.replace(placeholder, projectObj.images);
 
+      // render the project entries onto the page.
       projectEntry
         .append(projectTitle)
         .append(projectDates)
         .append(projectDescription);
 
-      // TODO: FIX MULTI PROJECT IMAGES
+      // check for images within the project entries.
+      if (projectObj.images.length > 0) {
+        // if there are images, create a replacement variable
+        var projectImages = HTMLprojectImage.replace(placeholder, projectObj.images);
 
-      for (var i = 0; i < projects.projects.length; i++) {
-        projectEntry.append(projects.projects[i].projectImages)
+        // loop through the images array of each project entry and append it.
+        for (var i = 0; i < projectObj.images.length; i++) {
+          projectEntry.append(projectImages)
+        }
       }
     }
 
+    // loop through the projects object and invoke displayProject() for each entry.
     if (projects.projects.length > 0) {
       for (var i = 0; i < projects.projects.length; i++) {
         displayProject(projects.projects[i])
