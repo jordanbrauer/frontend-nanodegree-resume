@@ -295,7 +295,7 @@ var work = {
     url: 'https://www.realcanadiansuperstore.ca/?cid=bs_google_cpc_Branded-Core-Winnipeg-EXA_superstore%20canada_e&gclid=Cj0KEQiA7K7CBRCrwt26v5uHs98BEiQA0JzsZ_Md7rT34Y2DKqYU0Y_HdhRIjmzYxQiWwoT-dTP5nOEaAmka8P8HAQ',
     title: 'Courtesy Clerk',
     location: 'Winnipeg, MB, Canada',
-    dates: 'June 2014 - Sepetember 2014',
+    dates: 'March 2012 - January 2014',
     description: 'My responsibilities included but were not limited to; providing exceptional customer service, ensuring accurate product scanning and price checking, executing company-directed promotions and programs, and maintaining product displays.'
   }, ],
   display: function() {
@@ -345,19 +345,19 @@ var projects = {
     title: 'fillytext.js',
     url: 'https://github.com/jordanbrauer/filly-text',
     dates: 'Work in Progress',
-    description: 'A tiny front-end devtool for filler text.',
+    description: 'A tiny front-end devtool for filler text. Great to keep your editor clear of ugly text blocks',
     images: []
   }, {
     title: 'What\'s Been Spoiled?',
     url: 'https://github.com/jordanbrauer/whats-been-spoiled',
     dates: 'Work in Progress',
-    description: 'A simple spoiler website for Magic: the Gathering!',
+    description: 'A simple (unofficial, fan-made) spoiler website for the card game Magic: the Gathering!',
     images: []
   }, {
     title: 'Timato',
     url: 'https://github.com/ProjectTimato',
     dates: 'Work in Progress',
-    description: 'A node based tomato timer application for all devices!',
+    description: 'A node-server based tomato timer application for all devices!',
     images: []
   }],
   display: function() {
