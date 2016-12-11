@@ -346,19 +346,25 @@ var projects = {
     url: 'https://github.com/jordanbrauer/filly-text',
     dates: 'Work in Progress',
     description: 'A tiny front-end devtool for filler text. Great to keep your editor clear of ugly text blocks',
-    images: []
+    images: [
+      'img/fillytext_logo.png'
+    ],
   }, {
     title: 'What\'s Been Spoiled?',
     url: 'https://github.com/jordanbrauer/whats-been-spoiled',
     dates: 'Work in Progress',
     description: 'A simple (unofficial, fan-made) spoiler website for the card game Magic: the Gathering!',
-    images: []
+    images: [
+      'img/wbs_splash.png',
+    ],
   }, {
     title: 'Timato',
     url: 'https://github.com/ProjectTimato',
     dates: 'Work in Progress',
     description: 'A node-server based tomato timer application for all devices!',
-    images: []
+    images: [
+      'img/timato_logo.png',
+    ],
   }],
   display: function() {
     // select the projects section

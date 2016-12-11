@@ -52,6 +52,13 @@ a {
   margin: 16px 0;
 }
 
+.project-img {
+  width: 100%;
+  height: auto;
+  max-width: 320px;
+  margin-bottom: 24px;
+}
+
 /* give the map a height. does not appear otherwise. */
 #map {
   height: 250px;

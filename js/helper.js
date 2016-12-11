@@ -150,7 +150,7 @@ var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#" target="_blank">%data%</a><br>';
 var HTMLprojectDates = '<i class="fa fa-md fa-calendar" aria-hidden="true"></i> &nbsp; %data%';
 var HTMLprojectDescription = '<p>%data%</p>';
-var HTMLprojectImage = `<img src="%data%" alt="project image">`;
+var HTMLprojectImage = `<img src="%data%" alt="project image" class="project-img">`;
 
 
 // education
