@@ -20,7 +20,8 @@ NOTE: Setting .has-tip { font-weight: 700; } does not work for some odd reason.
 body {
   font-family: "Lato", "Raleway", Helvetica, Arial, sans-serif;
   color: #888;
-  font-weight: 700; /* set .has-tip font-weight to bold. */
+  font-weight: 700;
+ /* set .has-tip font-weight to bold. */;
 }
 
 h1,
@@ -31,7 +32,8 @@ h5,
 h6,
 .reveal,
 .off-canvas-wrapper {
-  font-weight: 300; /* make all other text' font-weight "normal" */
+  font-weight: 300;
+ /* make all other text' font-weight "normal" */
 }
 
 /* Increase the font weight on links */
@@ -183,11 +185,12 @@ Foundation Tweaks
 }
 
 /* for some reason, the active class on foundation 6 magellan.js doesn't work? */
-a.active {
+  a.active {
   color: #fefefe;
   background: #0b9;
 }
+
 a.active:hover,
-a.active:focus{
+a.active:focus {
   background: #00a184;
 }
