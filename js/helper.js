@@ -141,14 +141,14 @@ var HTMLblogBottom = `
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#" target="_blank">%data%';
 var HTMLworkTitle = ' – %data%</a><br>';
-var HTMLworkDates = '%data%<br>';
-var HTMLworkLocation = '%data%';
+var HTMLworkDates = '<i class="fa fa-md fa-calendar" aria-hidden="true"></i> &nbsp; %data%<br>';
+var HTMLworkLocation = '<i class="fa fa-md fa-map-marker" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp; %data%';
 var HTMLworkDescription = '<p>%data%</p>';
 
 // projects
 var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#" target="_blank">%data%</a><br>';
-var HTMLprojectDates = '%data%';
+var HTMLprojectDates = '<i class="fa fa-md fa-calendar" aria-hidden="true"></i> &nbsp; %data%';
 var HTMLprojectDescription = '<p>%data%</p>';
 var HTMLprojectImage = `<img src="%data%" alt="project image">`;
 
@@ -157,16 +157,15 @@ var HTMLprojectImage = `<img src="%data%" alt="project image">`;
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#" target="_blank">%data%';
 var HTMLschoolDegree = ' – %data%</a><br>';
-var HTMLschoolDates = '%data%<br>';
-var HTMLschoolLocation = '%data%';
-var HTMLschoolMajor = 'Major: <em>%data%</em>';
+var HTMLschoolDates = '<i class="fa fa-md fa-calendar" aria-hidden="true"></i> &nbsp; %data%<br>';
+var HTMLschoolLocation = '<i class="fa fa-md fa-map-marker" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp; %data%';
+var HTMLschoolMajor = '<p>Major: <em>%data%</em></p>';
 
 // online courses
 var HTMLonlineClasses = '<h3>Online Courses</h3>';
 var HTMLonlineTitle = '<a href="#" target="_blank">%data%';
 var HTMLonlineSchool = ' – %data%</a><br>';
-var HTMLonlineDates = '%data%';
-var HTMLonlineURL = '<a href="#">%data%</a>';
+var HTMLonlineDates = '%data%<br>';
 
 // map
 var internationalizeButton = '<button>Internationalize</button>';
